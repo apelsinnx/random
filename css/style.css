@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    font-family: "Dela Gothic One", sans-serif;
+    text-align: center;
+}
+
+body{
+    font-size:clamp(10px, 1vw, 30px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size:clamp(40px, 4em, 150px);
+    margin: 0 0 1em 0;
+}
+p{
+    font-size: 1.8em;
+    margin: 0 0 1em 0;
+    
+}
+label{
+    font-size: 1.8em;
+}
+input{
+    font-size: 1.8em;
+    margin: 0 20px 1em 20px;
+    border: 3px solid black;
+    border-radius: 20px 0 20px 0;
+    padding: 8px;
+    background-color: #ffffff;
+    transition-property: box-shadow,transform,background-color;
+    transition-duration: 1s,0.4s,0.7s;
+    
+
+}
+input:hover{
+    transform: scale(105%);
+}
+input:focus{
+    background-color: #ffffff;
+    box-shadow: 0 0 20px 1px hsl(121, 100%, 79%);
+}
+input:active{
+    box-shadow: 0 0 60px 1px hsl(121, 71%, 66%);
+    transition: 0.02s;
+    background-color: hsl(121, 100%, 92%);
+}
+input#to{
+    border-radius: 0px 20px 0px 20px;
+}
+span{
+    font-size: 2.5em;
+    margin: 1em 0 1em 0;
+    display: inline-block;
+    
+}
+button{
+    font-size: 1.8em;
+    padding:20px 30px;
+    background-color: #c5ffc6;
+    border-radius: 8px;
+    border: 3px solid black;
+    transition: 0.5s;
+
+}
+button.notactive{
+    pointer-events: none;
+}
+button:active{
+    background-color: hsl(121, 100%, 79%);
+    transition: 0.02s;
+
+}
+button:hover{
+    transform: scale(110%);
+}
+
+.greenText{
+    color: #077009;
+    font-size: 3.5em;
+    transition: 0.5s ease-in-out; 
+}
+img{
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    display: none;
+}
+
+img.active{ 
+    display: block;
+    
+}
+
+div{
+    position: relative;
+    z-index: 1;
+}
+
+
+
