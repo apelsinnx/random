@@ -1,47 +1,40 @@
-const audio1 = new Audio("./audio/audio1.mp3");
-const audio2 = new Audio("./audio/audio2.mp3");
+const audio1 = new Audio("./audio/audio1.mp3")
+audio1.loop = true
+const audio2 = new Audio("./audio/audio2.mp3")
 
 document.querySelector("button").onclick = function () {
-    // Проверяем и запускаем аудио после явного пользовательского действия
-    audio1.play().catch(error => console.error("Error playing audio1:", error));
-
     const inputFrom = document.querySelector("#from");
     const inputTo = document.querySelector("#to");
     const inputFromText = inputFrom.value;
     const inputToText = inputTo.value;
 
-    console.log(inputFromText, inputToText);
+    console.log(inputFromText, inputToText)
 
     if (inputFromText == "") {
-        alert("Укажите число от");
-        return;
+        alert("укажите число от")
+        return
     }
     if (inputToText == "") {
-        alert("Укажите число до");
-        return;
+        alert("укажите число до")
+        return
     }
-    if (parseInt(inputFromText) > parseInt(inputToText)) {
-        alert("Число 'от' должно быть меньше чем число 'до'");
-        return;
+    if (parseInt(inputFromText) > parseInt(inputToText)){
+        alert("число 'от' должно быть меньше чем число 'до'")
+        return
     }
 
-    document.querySelector("button").classList.add("notactive");
+    document.querySelector("button").classList.add("notactive")
 
-    const min = parseInt(inputFromText);
-    const max = parseInt(inputToText);
-
+    const min = parseInt(inputFromText)
+    const max = parseInt(inputToText)
+    audio1.play()
     let interval = 50;
     let intervalNumber;
-    document.querySelector("span").classList.remove("greenText");
-    document.querySelector("img").classList.remove("active");
-
+    document.querySelector("span").classList.remove("greenText")
+    document.querySelector("img").classList.remove("active")
     const startInterval = () => {
         intervalNumber = setInterval(() => {
-            // Сбрасываем и воспроизводим звук корректно
-            audio1.pause();
-            audio1.currentTime = 0;
-            audio1.play().catch(error => console.error("Error playing audio1:", error));
-
+            audio1.currentTime = 0
             interval += interval / 25; // Увеличиваем интервал
             console.log(interval);
 
@@ -50,21 +43,27 @@ document.querySelector("button").onclick = function () {
 
             // Останавливаем текущий таймер и запускаем новый с увеличенным интервалом
             clearInterval(intervalNumber);
-            if (interval < 185) {
+            if (interval < 185){
                 startInterval();
-            } else {
-                document.querySelector("span").classList.add("greenText");
-                document.querySelector("img").classList.add("active");
-                audio2.play().catch(error => console.error("Error playing audio2:", error));
 
+            }else{
+                document.querySelector("span").classList.add("greenText")
+                document.querySelector("img").classList.add("active")
+                audio1.pause()
+                audio2.play()
                 setTimeout(() => {
-                    document.querySelector("img").classList.remove("active");
-                    document.querySelector("button").classList.remove("notactive");
+                    document.querySelector("img").classList.remove("active")
+                    document.querySelector("button").classList.remove("notactive")
                 }, 2600);
             }
+                
+            
         }, interval);
     };
 
     // Запуск первого интервала
     startInterval();
-};
+
+
+
+}
