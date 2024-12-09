@@ -17,6 +17,10 @@ document.querySelector("button").onclick = function () {
         alert("укажите число до")
         return
     }
+    if (parseInt(inputFromText) > parseInt(inputToText)){
+        alert("число 'от' должно быть меньше чем число 'до'")
+        return
+    }
 
     document.querySelector("button").classList.add("notactive")
 
@@ -49,7 +53,7 @@ document.querySelector("button").onclick = function () {
                 setTimeout(() => {
                     document.querySelector("img").classList.remove("active")
                     document.querySelector("button").classList.remove("notactive")
-                }, 2800);
+                }, 2600);
             }
                 
             
